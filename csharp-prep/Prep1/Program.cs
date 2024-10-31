@@ -1,23 +1,31 @@
 using System;
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello Prep1 World!");
-    }
-}
-
 class Program 
 {
     public static void Main(string[] args)
     {
-        Console.Writeline("Hello, World!");
+        Console.WriteLine("Hello, World!");
+
+
+        Console.WriteLine("Please enter your name");
+        string name = Console.ReadLine();
+
+        Console.WriteLine($"Your name is: {name}\n");
+
+        int x = 10;
+        if (x > 15)
+        {
+            Console.WriteLine("Hey Bob");
+        }
+
+        string userInput = Console.ReadLine();
+        int age = int.Parse(userInput);
+
+        // this line sandwiches the two above lines into one 
+        // int age = int.Parse(Console.ReadLine());
+
+        Console.WriteLine($"Your ages is: {age}");
     }
 }
 
-// double quotes and single quotes are not interchangeable
-// double quotes must be used to denote a string
-// must use semicolon to end function statements
-// squiggly wiggleys for code blocking functions
-// python interpreted, c# compiled
+
