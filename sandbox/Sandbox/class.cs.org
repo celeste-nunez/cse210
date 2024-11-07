@@ -1,0 +1,67 @@
+using System;
+using System.Formats.Asn1;
+using System.Media;
+
+class Program
+{
+    class Circle
+    {
+        private double radius;
+
+        public Circle(double radius)
+        {
+            this.radius = radius;
+        }
+
+        public double GetArea()
+        {
+            return Math.PI * radius * radius;
+        }
+
+        public double GetDiameter()
+        {
+            return radius * 2;
+        }
+
+        public double GetCircumference()
+        {
+            return 2 * Math.PI * radius;
+        }
+
+        public double GetRadius()
+        {
+            return radius;
+        }
+
+        public void SetRadius(double radius)
+        {
+            this.radius = radius;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine($"Area is: {GetArea()}");
+            Console.WriteLine($"Radius is: {GetRadius()}");
+            Console.WriteLine($"Diameter is: {GetDiameter()}");
+            Console.WriteLine($"Circumference is: {GetCircumference()}");
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("hewo");
+
+        int x = 10;
+
+        Circle myCircle = new Circle(x);
+        Circle myCircle2 = new Circle(x + 10);
+
+        Console.WriteLine(myCircle.GetArea());
+        Console.WriteLine(myCircle.GetCircumference());
+        Console.WriteLine(myCircle.GetDiameter());
+        Console.WriteLine(myCircle.GetRadius());
+
+        myCircle2.Display();
+    }
+    
+}
