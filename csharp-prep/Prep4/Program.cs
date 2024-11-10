@@ -24,5 +24,16 @@ class Program
         double length = numbers.Count();
         double average = total/length;
         Console.WriteLine($"average: {average}");
+
+        double min = numbers.Min();
+        double max = numbers.Max();
+        Console.WriteLine($"minimum: {min}");
+        Console.WriteLine($"maximum: {max}");
+
+        numbers.Sort();
+        foreach (int x in numbers) 
+        {
+            Console.WriteLine(x);
+        }
     }
 }
