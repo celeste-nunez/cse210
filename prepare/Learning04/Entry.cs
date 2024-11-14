@@ -2,10 +2,11 @@ class Entry
 {
     public Entry()
     {
-        prompt = Prompt();
-        date = EntryDateTime();
-        input = InputEntry();
-        EntryDisplay(prompt, date, input);
+        string prompt = Prompt();
+        DateTime date = EntryDateTime();
+        string entry = InputEntry();
+
+        FormatEntryOutput(prompt, date, entry);
     }
 
     public string Prompt()
@@ -37,9 +38,10 @@ class Entry
         return entry;
     }
 
-    public string EntryDisplay(string prompt, DateTime date, string input)
+    public string FormatEntryOutput(string prompt, DateTime date, string entry)
     {
-        output = Console.WriteLine($"{prompt}\n{date}\n{input}");
-        return output;
+        string entryOutput = $"{prompt}\n{date}\n{entry}";
+        Console.WriteLine(entryOutput);
+        return entryOutput;
     }
 }
