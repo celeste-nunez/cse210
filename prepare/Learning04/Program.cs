@@ -18,11 +18,18 @@ class Program
             Console.WriteLine("5. Quit");
             menuSelection = int.Parse(Console.ReadLine());
 
-            if (menuSelection == 1) {}
-            if (menuSelection == 2) {}
+            if (menuSelection == 1) 
+            {
+                newJournal.CreateEntry();
+                Console.WriteLine("New entry created!");
+            }
+            if (menuSelection == 2) 
+            {
+                Console.WriteLine("\nDisplaying journal entries:");
+                newJournal.DisplayEntries();
+            }
             if (menuSelection == 3) {}
             if (menuSelection == 4) {}
-
 
         } while (menuSelection != 5);
 

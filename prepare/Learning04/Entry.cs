@@ -1,15 +1,19 @@
 class Entry 
 {
+
+    public string Prompt { get; set; }
+    public DateTime Date { get; set; }
+    public string Content { get; set; }
+
     public Entry()
     {
-        string prompt = Prompt();
-        DateTime date = EntryDateTime();
-        string entry = InputEntry();
-
-        FormatEntryOutput(prompt, date, entry);
+        Prompt = GeneratePrompt();
+        Date = DateTime.Now;
+        Console.WriteLine("Input Entry: ");
+        Content = Console.ReadLine();
     }
 
-    public string Prompt()
+    public string GeneratePrompt()
     {
         List<string> prompts = new List<string>();
 
@@ -26,22 +30,15 @@ class Entry
         return randPrompt;
     }
 
-    public DateTime EntryDateTime() 
+    public override string ToString()
     {
-        DateTime entryDateTime = DateTime.Now;
-        return entryDateTime;
+        return $"Date: {Date:yyyy-MM-dd}\nPrompt: {Prompt}\nEntry: {Content}\n";
     }
 
-    public string InputEntry()
-    {
-        string entry = Console.ReadLine();
-        return entry;
-    }
-
-    public string FormatEntryOutput(string prompt, DateTime date, string entry)
-    {
-        string entryOutput = $"{prompt}\n{date}\n{entry}";
-        Console.WriteLine(entryOutput);
-        return entryOutput;
-    }
+    // public string FormatEntryOutput(string prompt, DateTime date, string entry)
+    // {
+    //     string outputString = "";
+    //     outputString = $"{date}#{prompt}#{entry}";
+    //     return outputString;
+    // }
 }
