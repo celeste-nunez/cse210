@@ -33,7 +33,7 @@ class Program
             {
                 Console.Write("Input file name: ");
                 string fileName = Console.ReadLine();
-                newJournal.WriteToFile(fileName);
+                newJournal.WriteToFile(fileName, true);
                 Console.WriteLine($"Journal entries saved successfully to {fileName}.");
             }
             if (menuSelection == 4) 

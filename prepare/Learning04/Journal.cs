@@ -13,9 +13,9 @@ class Journal
             Console.WriteLine(entry);
         }
     }
-    public void WriteToFile(string filename)
+    public void WriteToFile(string filename, bool append)
     {
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter(filename, append))
         {
             foreach(Entry entry in entries)
             {
