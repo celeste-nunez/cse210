@@ -17,6 +17,7 @@ class Program
             Console.WriteLine("3. Save");
             Console.WriteLine("4. Load");
             Console.WriteLine("5. Quit");
+            Console.Write("Input selection here: ");
             menuSelection = int.Parse(Console.ReadLine());
 
             if (menuSelection == 1) 
@@ -42,8 +43,12 @@ class Program
                 string fileName = Console.ReadLine();
                 newJournal.ReadFromFile(fileName);
             }
+            else 
+            {
+                Console.WriteLine("invalid");
+            }
 
-        } while (menuSelection != 5);
+        } while (menuSelection != 0);
 
     }
 }
