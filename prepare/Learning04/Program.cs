@@ -1,4 +1,5 @@
 using System;
+using System.IO.Enumeration;
 
 class Program
 {
@@ -13,8 +14,8 @@ class Program
             Console.WriteLine("Please select one of the following choices");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
+            Console.WriteLine("3. Save");
+            Console.WriteLine("4. Load");
             Console.WriteLine("5. Quit");
             menuSelection = int.Parse(Console.ReadLine());
 
@@ -28,8 +29,19 @@ class Program
                 Console.WriteLine("\nDisplaying journal entries:");
                 newJournal.DisplayEntries();
             }
-            if (menuSelection == 3) {}
-            if (menuSelection == 4) {}
+            if (menuSelection == 3) 
+            {
+                Console.Write("Input file name: ");
+                string fileName = Console.ReadLine();
+                newJournal.WriteToFile(fileName);
+                Console.WriteLine($"Journal entries saved successfully to {fileName}.");
+            }
+            if (menuSelection == 4) 
+            {
+                Console.Write("Input file name: ");
+                string fileName = Console.ReadLine();
+                newJournal.ReadFromFile(fileName);
+            }
 
         } while (menuSelection != 5);
 

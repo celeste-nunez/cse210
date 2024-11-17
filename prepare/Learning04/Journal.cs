@@ -13,4 +13,23 @@ class Journal
             Console.WriteLine(entry);
         }
     }
+    public void WriteToFile(string filename)
+    {
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach(Entry entry in entries)
+            {
+                outputFile.WriteLine(entry.ToString());
+            }
+        }
+    }
+    public void ReadFromFile(string filename)
+    {
+        string[] lines = System.IO.File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            Console.WriteLine(line);
+        }
+    }
+
 }

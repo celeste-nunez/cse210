@@ -35,10 +35,10 @@ class Entry
         return $"Date: {Date:yyyy-MM-dd}\nPrompt: {Prompt}\nEntry: {Content}\n";
     }
 
-    // public string FormatEntryOutput(string prompt, DateTime date, string entry)
-    // {
-    //     string outputString = "";
-    //     outputString = $"{date}#{prompt}#{entry}";
-    //     return outputString;
-    // }
+    public string EntryOutput(string prompt, DateTime date, string entry)
+    {
+        string outputString = "";
+        outputString = $"{date}#{prompt}#{entry}";
+        return outputString;
+    }
 }
