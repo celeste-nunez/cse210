@@ -1,7 +1,20 @@
 class Reference 
 {
-    private static void DisplayReference()
+    
+    private static List<string> CreateReference()
     {
-        Console.Write("John 16:33 ");
+        return new List<string> 
+        {
+            "John",
+            "16:33"
+        };
+    }
+    public static void DisplayReference()
+    {
+        List<string> reference = CreateReference();
+        foreach (string word in reference)
+        {
+            Console.Write(word + " ");
+        }
     }
 }

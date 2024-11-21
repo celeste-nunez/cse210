@@ -25,7 +25,7 @@ class Word
         };
     }
 
-    private static void DisplayAllWords()
+    public static void DisplayAllWords()
     {
         foreach (string word in ScriptureList())
         {
@@ -50,7 +50,7 @@ class Word
         return RandomWordInts;
     }
 
-    private static void HideWords() 
+    public static void HideWords() 
     {
         List<string> words =  ScriptureList();
         List<int> indexes = GetRandomWords();
@@ -61,7 +61,7 @@ class Word
         }
         foreach (string word in words)
         {
-            Console.WriteLine(word);
+            Console.Write(word + " ");
         }
     }  
 }
