@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 class Word 
 {
+    private static List<int> hiddenIndexes = new List<int>();
     private static List<string> ScriptureList()
     {
         return new List<string>
@@ -36,26 +37,28 @@ class Word
     private static List<int> GetRandomWords()
     {
         List<string> ScriptureWords = ScriptureList();
-        List<int> RandomWordInts = new List<int>{};
-        int loopCount = 0;
+        Random random = new Random();
+        List<int> newIndexes = new List<int>{};
 
-        while (loopCount < 3)
-        {
-            Random random = new Random();
+        while (newIndexes.Count < 3 && hiddenIndexes.Count + newIndexes.Count < ScriptureWords.Count)
+        {   
             int index = random.Next(ScriptureWords.Count);
-            RandomWordInts.Add(index);
-            loopCount ++;
+            if (!hiddenIndexes.Contains(index) && !newIndexes.Contains(index))
+            {
+                newIndexes.Add(index);
+            }
         }
 
-        return RandomWordInts;
+        return newIndexes;
     }
 
     public static void HideWords() 
     {
         List<string> words =  ScriptureList();
-        List<int> indexes = GetRandomWords();
+        List<int> NewIndexes = GetRandomWords();
+        hiddenIndexes.AddRange(NewIndexes);
 
-        foreach (int index in indexes)
+        foreach (int index in hiddenIndexes)
         {
             words[index] = new string('_', words[index].Length);
         }

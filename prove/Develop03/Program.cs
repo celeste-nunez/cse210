@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         Scripture.ReadScripture();
         Console.WriteLine("\nPress enter to continue or type quit to finish");
 
@@ -19,10 +20,6 @@ class Program
         } while (quit != "quit" && quit != "q");
 
         Console.WriteLine("\nthank you");
-
-       
-
-        
         
     }
 }
