@@ -5,7 +5,8 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop04 World!");
-        Activity.ActivityDelay();
+        Breathing breathingActivity = new Breathing();
+        breathingActivity.StartBreathingActivity();
     }
 
 }

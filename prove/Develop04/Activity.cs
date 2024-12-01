@@ -6,14 +6,16 @@ class Activity
         Console.WriteLine($"{activityDescription}\n");
     }
 
-    public static void ActivityTimer()
+    public static int GetTimeInSeconds()
     {
         Console.Write("How long, in seconds, would you like for your session? ");
-
         int timeInSeconds = int.Parse(Console.ReadLine());
-        int timeInMilliseconds = timeInSeconds * 1000;
+        return timeInSeconds;
+    }
 
-        Thread.Sleep(timeInMilliseconds);
+    public static void ActivitySummary(int timeInSeconds, string activityName)
+    {
+        Console.WriteLine($"You have completed another {timeInSeconds} seconds of the {activityName}.");
     }
 
     public static void ActivityDelay()
