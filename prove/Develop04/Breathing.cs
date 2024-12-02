@@ -3,7 +3,7 @@ class Breathing : Activity
     string activityName = "Breathing Activity";
     string activityDescription = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on breathing.";
 
-    public void BreathIn()
+    private void BreathIn()
     {
         Console.Write("Breathe in...");
         Console.Write(4);
@@ -21,7 +21,7 @@ class Breathing : Activity
         Console.WriteLine();
     }
 
-    public void BreathOut()
+    private void BreathOut()
     {
         Console.Write("Now breathe out...");
         Console.Write(6);
