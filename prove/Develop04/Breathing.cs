@@ -1,6 +1,5 @@
 class Breathing : Activity
 {
-    Activity breathingActivity = new Activity();
     string activityName = "Breathing Activity";
     string activityDescription = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on breathing.";
 

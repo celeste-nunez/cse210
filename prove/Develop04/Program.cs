@@ -6,7 +6,9 @@ class Program
     {
         Console.WriteLine("Hello Develop04 World!");
         Breathing breathingActivity = new Breathing();
-        breathingActivity.StartBreathingActivity();
+        Reflection reflectionActivity = new Reflection();
+        // breathingActivity.StartBreathingActivity();
+        reflectionActivity.StartReflectionActivity();
     }
 
 }
