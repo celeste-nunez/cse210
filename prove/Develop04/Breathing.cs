@@ -49,18 +49,16 @@ class Breathing : Activity
     {
         ActivityIntroduction(activityName, activityDescription);
         int inputTime = GetTimeInSeconds();
-        int sessionTime = inputTime;
+        DateTime endTime = activityDuration(inputTime);
         int totalTime = inputTime;
         Console.Clear();
         Console.WriteLine("Get Ready... ");
         ActivityDelay();
         Console.WriteLine("\n");
-        while (sessionTime > 0)
+        while (DateTime.Now < endTime)
         {
             BreathIn();
-            sessionTime -= 4;
             BreathOut();
-            sessionTime -= 6;
         }
         ActivitySummary(totalTime, activityName);
     }

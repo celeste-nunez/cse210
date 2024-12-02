@@ -23,7 +23,7 @@ class Listing : Activity
     {
         ActivityIntroduction(activityName, activityDescription);
         int inputTime = GetTimeInSeconds();
-        int sessionTime = inputTime;
+        DateTime endTime = activityDuration(inputTime);
         int totalTime = inputTime;
         Console.Clear();
         Console.WriteLine("Get Ready... ");
@@ -31,10 +31,9 @@ class Listing : Activity
         Console.WriteLine("\n");
         Console.WriteLine("List as many responses as you can to the following prompt:");
         GeneratePrompt();
-        while (sessionTime > 0)
+        while (DateTime.Now < endTime)
         {
             Console.ReadLine();
-            sessionTime -= 3;
         }
         ActivitySummary(totalTime, activityName);
     }

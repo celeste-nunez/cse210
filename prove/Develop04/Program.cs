@@ -4,14 +4,6 @@ using System.Net;
 
 class Program
 {
-    public void printMenu()
-    {
-        Console.WriteLine("Menu Options: ");
-        Console.WriteLine("   1. Start breathing activity");
-        Console.WriteLine("   2. Start reflection activity");
-        Console.WriteLine("   3. Start listing acctivity");
-        Console.WriteLine("   4. Quit");
-    }
     static void Main(string[] args)
     {
         Breathing breathingActivity = new Breathing();
@@ -22,6 +14,11 @@ class Program
 
         do
         {
+            Console.WriteLine("Menu Options: ");
+            Console.WriteLine("   1. Start breathing activity");
+            Console.WriteLine("   2. Start reflection activity");
+            Console.WriteLine("   3. Start listing acctivity");
+            Console.WriteLine("   4. Quit");
             response = int.Parse(Console.ReadLine());
             if (response == 1)
             {
@@ -35,13 +32,10 @@ class Program
             {
                 listingActivity.startListingActivity();
             }
-            else 
-            {
-                Console.Write("Invalid input");
-            }
-
         } while (response != 4);
 
     }
+
+
 
 }

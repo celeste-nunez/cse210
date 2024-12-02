@@ -13,6 +13,14 @@ class Activity
         return timeInSeconds;
     }
 
+    public DateTime activityDuration(int timeInSeconds)
+    {
+        DateTime currentTime = DateTime.Now;
+        DateTime endTime = currentTime.AddSeconds(timeInSeconds);
+        return endTime;
+    }
+
+
     public static void ActivitySummary(int timeInSeconds, string activityName)
     {
         Console.WriteLine($"You have completed another {timeInSeconds} seconds of the {activityName}.");

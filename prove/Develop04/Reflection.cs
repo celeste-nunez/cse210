@@ -54,7 +54,7 @@ class Reflection : Activity
     {
         ActivityIntroduction(activityName, activityDescription);
         int inputTime = GetTimeInSeconds();
-        int sessionTime = inputTime;
+        DateTime endTime = activityDuration(inputTime);
         int totalTime = inputTime;
         Console.Clear();
         Console.WriteLine("Get Ready... ");
@@ -63,15 +63,13 @@ class Reflection : Activity
         Console.WriteLine("Consider the following prompt: ");
         GeneratePrompt();
         Console.WriteLine("when you have something in mind, press Enter to continue...");
-        sessionTime -= 7;
         Console.ReadLine();
 
-        while (sessionTime > 0)
+        while (DateTime.Now < endTime)
         {
             Console.Clear();
             GenerateFollowUpQuestions();
             ActivityDelay();
-            sessionTime -= 5;
         }
         ActivitySummary(totalTime, activityName);
     }
