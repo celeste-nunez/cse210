@@ -12,8 +12,15 @@ class Person
 
     }
 
-    public string GetPersonInfo()
+    public virtual string GetPersonInfo()
     {
         return $"{_firstName}, {_lastName}, {_age}";
     }
+
+    public void SetFirstName(string firstName)
+    {
+        _firstName = firstName;
+    }
+
+
 }
