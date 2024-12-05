@@ -13,6 +13,6 @@ class Doctor : Person
 
     public override string GetPersonInfo()
     {
-        return $"I am a police man, my fav weapon is: {_tools}, My info is: {base.GetPersonInfo()}";
+        return $"I am a police man, my fav weapon is: {_tools}, My info is: ";
     }
 }

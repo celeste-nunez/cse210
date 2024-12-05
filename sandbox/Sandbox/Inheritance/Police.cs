@@ -13,6 +13,6 @@ class Police : Person
 
     public override string GetPersonInfo()
     {
-        return $"I am a police man, my fav weapon is: {_weapon}, My info is: {base.GetPersonInfo()}";
+        return $"I am a police man, my fav weapon is: {_weapon}, My info is: {base.GetPersonStats()}";
     }
 }

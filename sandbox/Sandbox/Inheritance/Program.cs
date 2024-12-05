@@ -9,9 +9,9 @@ class InheritanceProgram
     public static void Main(string[] args)
     {
         Console.WriteLine("Mew mew");
-        Person chester = new Person("Chester", "Chesterson", 22);
+        // Person chester = new Person("Chester", "Chesterson", 22);
 
-        Console.WriteLine(chester.GetPersonInfo());
+        // Console.WriteLine(chester.GetPersonInfo());
 
         Doctor docChester = new Doctor("Chester", "Chestersen", 75, "Stethoscope");
         Console.WriteLine(docChester.GetDoctorInfo());
