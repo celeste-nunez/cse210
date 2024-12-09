@@ -3,6 +3,7 @@ class SimpleGoal : Goal
     public override void RunGoal()
     {
         Console.WriteLine("Creating a Simple Goal...");
+        GoalType = "Simple";
         Name = GetName();
         Description = GetDescription();
         Points = GetPoints();
@@ -12,7 +13,7 @@ class SimpleGoal : Goal
 
     public override string ToString()
     {
-        return $"Goal Type: Simple | Name: {Name} | Description: {Description} | Points: {Points} | Completed: {IsComplete}";
+        return $"Goal Type: {GoalType} | Name: {Name} | Description: {Description} | Points: {Points} | Completed: {IsComplete}";
     }
 
 }

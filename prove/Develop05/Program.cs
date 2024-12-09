@@ -8,6 +8,7 @@ class Program
 
         SimpleGoal _simpleGoal = new SimpleGoal();
         EternalGoal _eternalGoal = new EternalGoal();
+        Checklist _checklistGoal = new Checklist();
         
         while (true)
         {
@@ -33,7 +34,10 @@ class Program
                 Goal.AddGoal(_eternalGoal);
             }
             if (responseInput == 3)
-            {}
+            {
+                _checklistGoal.RunGoal();
+                Goal.AddGoal(_checklistGoal);
+            }
             if (responseInput == 4)
             {
                 Console.WriteLine("Goals in your list:");

@@ -14,10 +14,14 @@ abstract class Goal
         return _goalsList;
     }
 
+    public string GoalType { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public int Points { get; set; }
     public bool IsComplete { get; private set; }
+    public int Progress { get; set; }
+    public int BonusPoints { get; set; }
+    public int ActualProgress { get; set; }
 
     public string GetName()
     {
@@ -40,6 +44,20 @@ abstract class Goal
         return goalPoints; 
     }
 
+    public int GetProgress()
+    {
+        Console.Write("How many times would you like to accomplish this goal: ");
+        int progress = int.Parse(Console.ReadLine());
+        return progress;
+    }
+
+    public int GetBonusPoints()
+    {
+        Console.Write("How many points would you like to be attached to this goals completion: ");
+        int bonus = int.Parse(Console.ReadLine());
+        return bonus;
+    }
+
     public void GetStatus()
     {
         IsComplete = false;
@@ -49,6 +67,7 @@ abstract class Goal
     {
         IsComplete = true;
     }
+
 
     public abstract void RunGoal();
 
