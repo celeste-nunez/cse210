@@ -19,5 +19,7 @@ class SimpleGoal : Goal
     public override void RecordEvent()
     {
         MarkComplete();
+        PointsToAdd = Points;
+        Console.WriteLine("Simple goal completed!");
     }
 }

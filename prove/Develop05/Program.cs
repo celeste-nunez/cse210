@@ -16,7 +16,7 @@ class Program
         while (true)
         {
             int responseInput = 0;
-            Console.WriteLine($"Running Point Total: {runningTotal}");
+            Console.WriteLine($"\nRunning Point Total: {runningTotal}");
 
             _saveLoad.SelectionMenu();
 
@@ -83,22 +83,36 @@ class Program
                         if (userCompletionConfirmation == "y")
                         {
                             _simpleGoal.RecordEvent();
-                            int pointsToAdd = selectedGoal.Points;
-                            runningTotal = runningTotal + pointsToAdd;
+                            runningTotal += selectedGoal.PointsToAdd;
+                        }
+                    }
+                    if (goalType == "Eternal")
+                    {
+                        Console.Write("Is this goal complete(y/n): ");
+                        string userCompletionConfirmation = Console.ReadLine();
+                        if (userCompletionConfirmation == "y")
+                        {
+                            _eternalGoal.RecordEvent();
+                            runningTotal += selectedGoal.PointsToAdd; 
                         }
                     }
                     if (goalType == "Checklist")
                     {
-                        _checklistGoal.RecordEvent();
-                        int pointsToAdd = selectedGoal.Points;
-                        runningTotal += pointsToAdd;
-                    }
-                    if (goalType == "Eternal")
-                    {
-                        _eternalGoal.RecordEvent();
+                        Console.Write("Has this goal progressed(y/n): ");
+                        string userCompletionConfirmation = Console.ReadLine();
+                        if (userCompletionConfirmation == "y")
+                        {
+                            _checklistGoal.RecordEvent();
+                           runningTotal += selectedGoal.PointsToAdd;
+                        }
                     }
                 }
             } 
+            if (responseInput == 8)
+            {
+                Console.WriteLine("Exiting the program. Goodbye!");
+                break; 
+            }
         }
     }
 }

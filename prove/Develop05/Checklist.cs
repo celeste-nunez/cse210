@@ -21,7 +21,21 @@ class Checklist : Goal
 
     public override void RecordEvent()
     {
-        
+        ActualProgress += 1;
+        PointsToAdd = Points;
+        if (ActualProgress == Progress)
+        {
+            PointsToAdd = Points + BonusPoints;
+            Console.WriteLine("Checklist progress added!");
+            Console.WriteLine("Checklist Completed!");
+            MarkComplete();
+        }
+        if (ActualProgress != Progress)
+        {
+            PointsToAdd = Points;
+            Console.WriteLine("Checklist progress added!");
+        }
+
     }
 
 }

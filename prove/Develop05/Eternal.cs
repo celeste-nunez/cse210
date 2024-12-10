@@ -14,9 +14,10 @@ class EternalGoal : Goal
     {
         return $"Goal Type: {GoalType} | Name: {Name} | Description: {Description} | Points: {Points}";
     }
-    
+
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        PointsToAdd = Points;
+        Console.WriteLine("Eternal goal progress recorded!");
     }
 }
