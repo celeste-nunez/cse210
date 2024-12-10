@@ -1,5 +1,27 @@
-class Checklist : Goal
+class ChecklistGoal : Goal
 {
+    public ChecklistGoal()
+    {
+        GoalType = "Simple";
+        Name = "";
+        Description = "";
+        Points = 0;
+        Progress = 3;
+        BonusPoints = 0;
+        IsComplete = false;
+        ActualProgress = 0;
+    }
+
+    public ChecklistGoal(string name, string description, int points, int progress, int bonusPoints, bool isComplete)
+    {
+        GoalType = "Checklist";
+        Name = name;
+        Description = description;
+        Points = points;
+        Progress = progress;
+        BonusPoints = bonusPoints;
+        IsComplete = isComplete;
+    }
      public override void RunGoal()
     {
         Console.WriteLine("Creating a Checklist Goal...");
@@ -16,7 +38,7 @@ class Checklist : Goal
 
     public override string ToString()
     {
-        return $"Goal Type: {GoalType} | Name: {Name} | Description: {Description} | Points per completion: {Points} | Bonus Points: {BonusPoints} | Progress: {ActualProgress}/{Progress} | Completed: {IsComplete}";
+        return $"Goal Type: {GoalType} | Name: {Name} | Description: {Description} | Points per completion: {Points} | Progress: {ActualProgress}/{Progress} | Bonus Points: {BonusPoints} | Completed: {IsComplete}";
     }
 
     public override void RecordEvent()

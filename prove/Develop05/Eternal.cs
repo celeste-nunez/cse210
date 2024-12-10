@@ -1,5 +1,21 @@
+using System.Drawing;
+
 class EternalGoal : Goal
 {
+    public EternalGoal()
+    {
+        GoalType = "Eternal";
+        Name = "";
+        Description = "";
+        Points = 0;
+    }
+    public EternalGoal(string name, string description, int points)
+    {
+        GoalType = "Eternal";
+        Name = name;
+        Description = description;
+        Points = points;
+    }
     public override void RunGoal()
     {
         Console.WriteLine("Creating an Eternal Goal...");

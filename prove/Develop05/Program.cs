@@ -6,16 +6,15 @@ class Program
     static void Main(string[] args)
     {
         int runningTotal = 0;
-        Console.WriteLine("Hello Develop05 World!\n");
 
         SimpleGoal _simpleGoal = new SimpleGoal();
         EternalGoal _eternalGoal = new EternalGoal();
-        Checklist _checklistGoal = new Checklist();
+        ChecklistGoal _checklistGoal = new ChecklistGoal();
         SaveLoad _saveLoad = new SaveLoad();
-        string GoalType = _eternalGoal.GoalType;
+      
         while (true)
         {
-            int responseInput = 0;
+            int responseInput;
             Console.WriteLine($"\nRunning Point Total: {runningTotal}");
 
             _saveLoad.SelectionMenu();
@@ -50,7 +49,7 @@ class Program
             {
                 Console.Write("Insert filename: ");
                 string _filename = Console.ReadLine();
-                _saveLoad.WriteToFile(_filename, false);
+                _saveLoad.WriteToFile(_filename, false, runningTotal);
                 Console.WriteLine($"Journal entries saved successfully to {_filename}.");
             }
             if (responseInput == 6)
@@ -82,8 +81,13 @@ class Program
                         string userCompletionConfirmation = Console.ReadLine();
                         if (userCompletionConfirmation == "y")
                         {
-                            _simpleGoal.RecordEvent();
-                            runningTotal += selectedGoal.PointsToAdd;
+                            var simpleGoal = selectedGoal as SimpleGoal;
+                            if (simpleGoal != null)
+                            {
+                                simpleGoal.RecordEvent();
+                                runningTotal += selectedGoal.PointsToAdd;
+                            }
+                            
                         }
                     }
                     if (goalType == "Eternal")
@@ -92,8 +96,13 @@ class Program
                         string userCompletionConfirmation = Console.ReadLine();
                         if (userCompletionConfirmation == "y")
                         {
-                            _eternalGoal.RecordEvent();
-                            runningTotal += selectedGoal.PointsToAdd; 
+                            var eternalGoal = selectedGoal as EternalGoal;
+                            if (eternalGoal != null)
+                            {
+                                eternalGoal.RecordEvent();
+                                runningTotal += selectedGoal.PointsToAdd; 
+
+                            }   
                         }
                     }
                     if (goalType == "Checklist")
@@ -102,8 +111,13 @@ class Program
                         string userCompletionConfirmation = Console.ReadLine();
                         if (userCompletionConfirmation == "y")
                         {
-                            _checklistGoal.RecordEvent();
-                           runningTotal += selectedGoal.PointsToAdd;
+                            var checklistGoal = selectedGoal as ChecklistGoal;
+                            if (checklistGoal != null)
+                            {
+                                checklistGoal.RecordEvent();
+                                runningTotal += selectedGoal.PointsToAdd;
+                            }
+                           
                         }
                     }
                 }

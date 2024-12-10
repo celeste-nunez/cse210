@@ -1,5 +1,21 @@
 class SimpleGoal : Goal
 {
+    public SimpleGoal()
+    {
+        GoalType = "Simple";
+        Name = "";
+        Description = "";
+        Points = 0;
+        IsComplete = false;
+    }
+    public SimpleGoal(string name, string description, int points, bool isComplete)
+    {
+        GoalType = "Simple";
+        Name = name;
+        Description = description;
+        Points = points;
+        IsComplete = isComplete;
+    }
     public override void RunGoal()
     {
         Console.WriteLine("Creating a Simple Goal...");

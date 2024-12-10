@@ -1,3 +1,5 @@
+10
 Goal Type: Simple | Name: Go hiking | Description: go on a nearby hike | Points: 20 | Completed: False
 Goal Type: Eternal | Name: Read Scriptures | Description: read a scripture daily | Points: 5
-Goal Type: Checklist | Name: Cooking | Description: make 3 healthy meals | Points per completion: 15 | Bonus Points: 30 | Progress: 0/3 | Completed: False
+Goal Type: Checklist | Name: Cooking | Description: make 3 healthy meals | Points per completion: 15 | Progress: 0/3 | Bonus Points: 30 | Completed: False
+Goal Type: Simple | Name: Running | Description: go on a run around the block | Points: 10 | Completed: True

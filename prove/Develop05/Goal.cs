@@ -8,7 +8,7 @@ abstract class Goal
     public string Name { get; set; }
     public string Description { get; set; }
     public int Points { get; set; }
-    public bool IsComplete { get; private set; }
+    public bool IsComplete { get; set; }
     public int Progress { get; set; }
     public int BonusPoints { get; set; }
     public int ActualProgress { get; set; }
@@ -59,12 +59,12 @@ abstract class Goal
         return bonus;
     }
 
-    protected void GetStatus()
+    public void GetStatus()
     {
         IsComplete = false;
     }
 
-    protected void MarkComplete()
+    public void MarkComplete()
     {
         IsComplete = true;
     }
