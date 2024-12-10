@@ -18,4 +18,10 @@ class Checklist : Goal
     {
         return $"Goal Type: {GoalType} | Name: {Name} | Description: {Description} | Points per completion: {Points} | Bonus Points: {BonusPoints} | Progress: {ActualProgress}/{Progress} | Completed: {IsComplete}";
     }
+
+    public override void RecordEvent()
+    {
+        
+    }
+
 }

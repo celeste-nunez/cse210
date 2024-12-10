@@ -4,6 +4,15 @@ abstract class Goal
 {
     private static List<Goal> _goalsList = new List<Goal>();
 
+    public string GoalType { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public int Points { get; set; }
+    public bool IsComplete { get; private set; }
+    public int Progress { get; set; }
+    public int BonusPoints { get; set; }
+    public int ActualProgress { get; set; }
+
     public static void AddGoal(Goal newGoal)
     {
         _goalsList.Add(newGoal);
@@ -13,15 +22,6 @@ abstract class Goal
     {
         return _goalsList;
     }
-
-    public string GoalType { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int Points { get; set; }
-    public bool IsComplete { get; private set; }
-    public int Progress { get; set; }
-    public int BonusPoints { get; set; }
-    public int ActualProgress { get; set; }
 
     public string GetName()
     {
@@ -70,5 +70,7 @@ abstract class Goal
 
 
     public abstract void RunGoal();
+    public abstract void RecordEvent();
+   
 
 }

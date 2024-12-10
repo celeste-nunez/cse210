@@ -16,4 +16,8 @@ class SimpleGoal : Goal
         return $"Goal Type: {GoalType} | Name: {Name} | Description: {Description} | Points: {Points} | Completed: {IsComplete}";
     }
 
+    public override void RecordEvent()
+    {
+        MarkComplete();
+    }
 }
