@@ -65,12 +65,6 @@ class SaveLoad
         return runningTotal;
     }
 
-
-
-
-
-
-
     public void SelectionMenu()
     {
         Console.WriteLine("\n~~~Menu~~~");

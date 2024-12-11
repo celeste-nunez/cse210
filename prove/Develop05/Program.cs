@@ -87,7 +87,6 @@ class Program
                                 simpleGoal.RecordEvent();
                                 runningTotal += selectedGoal.PointsToAdd;
                             }
-                            
                         }
                     }
                     if (goalType == "Eternal")
