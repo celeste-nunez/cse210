@@ -2,36 +2,28 @@ using Microsoft.VisualBasic;
 
 abstract class User
 {
-    List<string> memberIDs = new List<string>{"M54321","M12345","M5678"};
-    List<string> librarianIDs = new List<string>{"L5678"};
-    public string GetUserID()
+    protected void LibrarianMenu()
     {
-        Console.Write($"please insert your user ID: ");
-        string userID =  Console.ReadLine();
-        return userID;
+        Console.WriteLine("1. Borrow book");
+        Console.WriteLine("2. Return book");
+        Console.WriteLine("3. View your borrowing history");
+        Console.WriteLine("4. Update book details");
+        Console.WriteLine("5. View transactions");
+        Console.WriteLine("6. Add book to catalog");
+        Console.WriteLine("7. Remove book from catalog");
+        Console.WriteLine("8. Quit");
+        Console.Write("Please make a selection: ");
+        
+    }
+    protected void MemberMenu()
+    {
+        Console.WriteLine("1. Borrow book");
+        Console.WriteLine("2. Return book");
+        Console.WriteLine("3. View your borrowing history");
+        Console.WriteLine("4. Quit");
+        Console.Write("Please make a selection: ");
+
     }
 
-    public string IdentifyUserID(string userID)
-    {
-        userID = userID.ToLower();
-        if (memberIDs.Contains(userID))
-        {
-            string userType = "member";
-            Console.WriteLine("Welcome to the library valued member!");
-            return userType;
-        }
-        else if (librarianIDs.Contains(userID))
-        {
-            string userType = "librarian";
-            Console.WriteLine("Welcome librarian!");
-            return userType;
-        }
-        // else 
-        // {
-        //     Console.WriteLine($"The userID: {userID} does not exist");
-            
-        // }
-    }
-
-    protected abstract void GetUserSelections();
+    public abstract void GetUserSelections();
 }
