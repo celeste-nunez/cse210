@@ -1,6 +1,6 @@
 Harry Potter and the Sorcerer's Stone~J.K. Rowling~Fantasy~True~1
 The Hunger Games~Suzanne Collins~Dystopian~True~2
-Charlotte’s Web~E.B. White~Children's Fiction~True~3
+Charlotte’s Web~E.B. White~Children's Fiction~Ture~3
 To Kill a Mockingbird~Harper Lee~Classic, Fiction~True~4
 Percy Jackson & The Olympians: The Lightning Thief~Rick Riordan~Fantasy, Mythology~False~5
 1984~George Orwell~Dystopian, Classic~True~6
