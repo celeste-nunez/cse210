@@ -1,10 +1,17 @@
 class Librarian : User
 {
+    private string librarianID;
+    public string PassLibrarianID(string _userID)
+    {
+        string librarianID = _userID;
+        return librarianID;
+    }
 
     public override void GetUserSelections()
     {
         Catalog LibrarianCatalog = getLibraryCatalog();
-        BorrowService borrowService = new BorrowService(LibrarianCatalog);
+        BorrowService borrowService = new BorrowService
+        (LibrarianCatalog);
         while (true)
         {
             LibrarianMenu();
@@ -12,11 +19,11 @@ class Librarian : User
             Console.WriteLine("\n");
             if (userSelection == 1)
             {
-               borrowService.BorrowBook();
+               borrowService.BorrowBook(librarianID);
             }
             if (userSelection == 2)
             {
-                borrowService.ReturnBook();
+                borrowService.ReturnBook(librarianID);
             }
             if (userSelection == 3)
             {

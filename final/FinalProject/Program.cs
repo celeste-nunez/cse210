@@ -14,6 +14,7 @@ class Program
         if (_userType == "librarian") 
         {
             ourLibrarians.GetUserSelections();
+            ourLibrarians.PassLibrarianID(_userID);
         }
         else if (_userType == "member")
         {

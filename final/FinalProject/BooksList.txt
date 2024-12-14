@@ -8,7 +8,7 @@ The Catcher in the Rye~J.D. Salinger~Classic, Coming-of-Age~False~7
 The Lion, the Witch and the Wardrobe~C.S. Lewis~Fantasy, Children's Fiction~True~8
 Frankenstein~Mary Shelley~Classic, Gothic~True~9
 The Giver~Lois Lowry~Dystopian, Children's Fiction~False~10
-The Lord of the Rings: The Fellowship of the Ring~J.R.R. Tolkien~Fantasy~True~11
+The Lord of the Rings: The Fellowship of the Ring~J.R.R. Tolkien~Fantasy~False~11
 Brave New World~Aldous Huxley~Dystopian, Classic~True~12
 The Outsiders~S.E. Hinton~YA, Coming-of-Age~True~13
 Anne of Green Gables~L.M. Montgomery~Children's Fiction~False~14

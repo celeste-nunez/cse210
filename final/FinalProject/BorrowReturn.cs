@@ -1,13 +1,17 @@
 class BorrowService
 {
-    private Catalog _catalog;
+    private Transactions _transactions = new Transactions();
 
+    private Catalog _catalog;
     public BorrowService(Catalog catalog)
     {
         _catalog = catalog; 
     }
 
-    public void BorrowBook()
+    private const string BookFileName = "BooksList.txt";
+    private const string TransactionFileName = "Transactions.txt";
+
+    public void BorrowBook(string IDCode)
     {
         Console.WriteLine("Let's borrow a book!\n");
         Console.Write("To begin, please input a title, author, or genre to proceed: ");
@@ -20,11 +24,12 @@ class BorrowService
         var selectedBook = _catalog.catalog.FirstOrDefault(b => b.BookID == selectedID);
         if (selectedBook != null)
         {
-            if (selectedBook.Availability == "True")
+            if (selectedBook.Availability == true)
             {
-                selectedBook.Availability = "False";
+                selectedBook.Availability = false;
                 Console.WriteLine($"You have successfully checked out '{selectedBook.Title}'. Enjoy your read!\n");
-                UpdateBookFile("BooksList.txt");
+                UpdateBookFile(BookFileName);
+                _transactions.recordEvent(TransactionFileName, IDCode, "Borrow", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
             }
             else 
             {
@@ -37,7 +42,7 @@ class BorrowService
         }
     }
 
-    public void ReturnBook()
+    public void ReturnBook(string IDCode)
     {
         Console.WriteLine("Thank you for returning your books!\n");
         Console.Write("To begin, please input a title, author, or genre to proceed: ");
@@ -50,11 +55,12 @@ class BorrowService
         var selectedBook = _catalog.catalog.FirstOrDefault(b => b.BookID == selectedID);
         if (selectedBook != null)
         {
-            if (selectedBook.Availability == "False")
+            if (selectedBook.Availability == false)
             {
-                selectedBook.Availability = "Ture";
+                selectedBook.Availability = true;
                 Console.WriteLine($"You have successfully returned '{selectedBook.Title}'. ");
-                UpdateBookFile("BooksList.txt");
+                UpdateBookFile(BookFileName);
+                _transactions.recordEvent(TransactionFileName, IDCode, "Return", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
             }
             else 
             {

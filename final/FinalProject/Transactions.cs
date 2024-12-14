@@ -1,17 +1,16 @@
 class Transactions
 {
-    private void UpdateTransactionsFile(string filename)
+    public void recordEvent(string filename, string UserID, string transactionType, string bookTitle, string bookAuthor, string bookGenre, bool bookAvailibility, int bookID )
     {
         try
         {
-            string transactionDate = DateTime.Now.ToString("");
-            using (StreamWriter writer = new StreamWriter(filename))
+            string transactionDate = DateTime.Now.ToString("yy-MM-dd");
+            using (StreamWriter writer = new StreamWriter(filename, true))
             {
-                for (var book)
-                {
-                    string line = $"{book.Title}~{book.Author}~{book.Genre}~{book.Availability}~{book.BookID}~{transactionDate}";
-                    writer.WriteLine(line);
-                }
+                string line = $"{UserID}~{transactionType}~{bookTitle}~{bookAuthor}~{bookGenre}~{bookAvailibility}~{bookID}";
+
+                writer.WriteLine(line);
+                
             }
         }
         catch (Exception ex)
