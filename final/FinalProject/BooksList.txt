@@ -1,0 +1,15 @@
+Harry Potter and the Sorcerer's Stone~J.K. Rowling~Fantasy~True~1
+The Hunger Games~Suzanne Collins~Dystopian~True~2
+Charlotte’s Web~E.B. White~Children's Fiction~True~3
+To Kill a Mockingbird~Harper Lee~Classic, Fiction~True~4
+Percy Jackson & The Olympians: The Lightning Thief~Rick Riordan~Fantasy, Mythology~False~5
+1984~George Orwell~Dystopian, Classic~True~6
+The Catcher in the Rye~J.D. Salinger~Classic, Coming-of-Age~False~7
+The Lion, the Witch and the Wardrobe~C.S. Lewis~Fantasy, Children's Fiction~True~8
+Frankenstein~Mary Shelley~Classic, Gothic~True~9
+The Giver~Lois Lowry~Dystopian, Children's Fiction~False~10
+The Lord of the Rings: The Fellowship of the Ring~J.R.R. Tolkien~Fantasy~True~11
+Brave New World~Aldous Huxley~Dystopian, Classic~True~12
+The Outsiders~S.E. Hinton~YA, Coming-of-Age~True~13
+Anne of Green Gables~L.M. Montgomery~Children's Fiction~False~14
+Ender’s Game~Orson Scott Card~Sci-Fi, YA~False~15

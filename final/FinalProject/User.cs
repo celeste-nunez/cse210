@@ -2,6 +2,7 @@ using Microsoft.VisualBasic;
 
 abstract class User
 {
+    private Catalog LibraryCatalog;
     protected void LibrarianMenu()
     {
         Console.WriteLine("1. Borrow book");
@@ -11,9 +12,8 @@ abstract class User
         Console.WriteLine("5. View transactions");
         Console.WriteLine("6. Add book to catalog");
         Console.WriteLine("7. Remove book from catalog");
-        Console.WriteLine("8. Quit");
+        Console.WriteLine("8. Quit\n");
         Console.Write("Please make a selection: ");
-        
     }
     protected void MemberMenu()
     {
@@ -25,5 +25,14 @@ abstract class User
 
     }
 
+    protected Catalog getLibraryCatalog()
+    {
+        LibraryCatalog = new Catalog();
+        LibraryCatalog.GetBooks("BooksList.txt");
+        return LibraryCatalog;
+    }
+
     public abstract void GetUserSelections();
+
+
 }

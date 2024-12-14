@@ -1,10 +1,25 @@
 class Librarian : User
 {
-    // LibrarianMenu();
+
     public override void GetUserSelections()
     {
-        LibrarianMenu();
-        int userSelection = int.Parse(Console.ReadLine());
-        
+        Catalog LibrarianCatalog = getLibraryCatalog();
+        while (true)
+        {
+            LibrarianMenu();
+            int userSelection = int.Parse(Console.ReadLine());
+            Console.WriteLine("\n");
+            if (userSelection == 1)
+            {
+                LibrarianCatalog.BorrowBook();
+            }
+            if (userSelection == 8)
+            {
+                break;
+            }
+
+        }
+
+
     }
 }
