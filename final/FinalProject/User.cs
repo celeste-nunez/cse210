@@ -2,7 +2,15 @@ using Microsoft.VisualBasic;
 
 abstract class User
 {
-    private Catalog LibraryCatalog;
+    public string UserID { get; private set; }
+    protected BorrowService _borrowService;
+
+    protected User(string userId, Catalog catalog)
+    {
+        UserID = userId;
+        _borrowService = new BorrowService(catalog);
+    }
+
     protected void LibrarianMenu()
     {
         Console.WriteLine("1. Borrow book");
@@ -25,12 +33,12 @@ abstract class User
 
     }
 
-    protected Catalog getLibraryCatalog()
-    {
-        LibraryCatalog = new Catalog();
-        LibraryCatalog.GetBooks("BooksList.txt");
-        return LibraryCatalog;
-    }
+    // protected Catalog getLibraryCatalog()
+    // {
+    //     LibraryCatalog = new Catalog();
+    //     LibraryCatalog.GetBooks("BooksList.txt");
+    //     return LibraryCatalog;
+    // }
 
     public abstract void GetUserSelections();
 

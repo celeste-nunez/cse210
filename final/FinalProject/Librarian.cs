@@ -1,17 +1,18 @@
 class Librarian : User
 {
-    private string librarianID;
-    public string PassLibrarianID(string _userID)
+    // private BorrowService _borrowService;
+    private Catalog _catalog;
+
+    public Librarian(string userID, Catalog catalog) : base(userID, catalog)
     {
-        string librarianID = _userID;
-        return librarianID;
+        _catalog = catalog;
     }
 
     public override void GetUserSelections()
     {
-        Catalog LibrarianCatalog = getLibraryCatalog();
-        BorrowService borrowService = new BorrowService
-        (LibrarianCatalog);
+        // Catalog LibrarianCatalog = getLibraryCatalog();
+        // BorrowService borrowService = new BorrowService
+        // (LibrarianCatalog);
         while (true)
         {
             LibrarianMenu();
@@ -19,11 +20,11 @@ class Librarian : User
             Console.WriteLine("\n");
             if (userSelection == 1)
             {
-               borrowService.BorrowBook(librarianID);
+               _borrowService.BorrowBook(UserID);
             }
             if (userSelection == 2)
             {
-                borrowService.ReturnBook(librarianID);
+                _borrowService.ReturnBook(UserID);
             }
             if (userSelection == 3)
             {
@@ -49,6 +50,11 @@ class Librarian : User
             {
                 break;
             }
+            else
+            {
+                Console.WriteLine("Invalid selection. Please try again.\n");
+            }
+
 
         }
 

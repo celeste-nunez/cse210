@@ -1,28 +1,33 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
     static Library ourLibrary = new Library();
-    static Librarian ourLibrarians = new Librarian();
-    static Member ourMembers = new Member();
+    // static Librarian ourLibrarians = new Librarian();
+    // static Member ourMembers = new Member();
     static void Main(string[] args)
     {
+        Catalog libraryCatalog = new Catalog();
+        libraryCatalog.GetBooks("BooksList.txt");
+
         ourLibrary.Welcome();
-        string _userID = ourLibrary.GetUserID();
+        string userId = ourLibrary.GetUserID();
         ourLibrary.Loading();
-        string _userType = ourLibrary.IdentifyUserID(_userID);
+        string _userType = ourLibrary.IdentifyUserID(userId);
         if (_userType == "librarian") 
         {
-            ourLibrarians.GetUserSelections();
-            ourLibrarians.PassLibrarianID(_userID);
+            Librarian librarian = new Librarian(userId, libraryCatalog);
+            librarian.GetUserSelections();
         }
         else if (_userType == "member")
         {
-            ourMembers.GetUserSelections();
+            Member member = new Member(userId, libraryCatalog);
+            member.GetUserSelections();
         }
         else 
         {
-            Console.WriteLine($"invalid user ID, {_userID}");
+            Console.WriteLine($"invalid user ID, {userId}");
         }
 
     }

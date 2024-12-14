@@ -1,6 +1,6 @@
 class BorrowService
 {
-    private Transactions _transactions = new Transactions();
+    // private Transactions _transactions;
 
     private Catalog _catalog;
     public BorrowService(Catalog catalog)
@@ -10,6 +10,13 @@ class BorrowService
 
     private const string BookFileName = "BooksList.txt";
     private const string TransactionFileName = "Transactions.txt";
+
+
+    public string GetUserID(string idCode)
+    {
+        string userID = idCode;
+        return userID;
+    }
 
     public void BorrowBook(string IDCode)
     {
@@ -29,7 +36,7 @@ class BorrowService
                 selectedBook.Availability = false;
                 Console.WriteLine($"You have successfully checked out '{selectedBook.Title}'. Enjoy your read!\n");
                 UpdateBookFile(BookFileName);
-                _transactions.recordEvent(TransactionFileName, IDCode, "Borrow", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
+                // _transactions.recordEvent(TransactionFileName, IDCode, "Borrow", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
             }
             else 
             {
@@ -60,7 +67,7 @@ class BorrowService
                 selectedBook.Availability = true;
                 Console.WriteLine($"You have successfully returned '{selectedBook.Title}'. ");
                 UpdateBookFile(BookFileName);
-                _transactions.recordEvent(TransactionFileName, IDCode, "Return", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
+                // _transactions.recordEvent(TransactionFileName, IDCode, "Return", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
             }
             else 
             {

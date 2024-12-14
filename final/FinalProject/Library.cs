@@ -2,7 +2,7 @@ class Library
 {
     List<string> memberIDs = new List<string>{"M54321","M12345","M5678"};
     List<string> librarianIDs = new List<string>{"L5678"};
-
+    
     public void Welcome()
     {
         Console.Clear();
@@ -14,6 +14,7 @@ class Library
         string userID =  Console.ReadLine();
         return userID;
     }
+
     public string IdentifyUserID(string userID)
     {
         userID = userID.ToUpper();

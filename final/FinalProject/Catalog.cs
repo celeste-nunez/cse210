@@ -27,7 +27,7 @@ class Catalog
                 string bookTitle = bookData[0].Trim();
                 string bookAuthor = bookData[1].Trim();
                 string bookGenre = bookData[2].Trim();
-                string bookAvailability = bookData[3].Trim();
+                bool bookAvailability = bool.Parse(bookData[3].Trim());
                 int bookID = int.Parse(bookData[4].Trim());
 
                 Book newBook = new Book(bookTitle, bookAuthor, bookGenre, bookAvailability, bookID);
