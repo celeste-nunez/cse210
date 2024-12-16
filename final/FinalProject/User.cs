@@ -8,7 +8,7 @@ abstract class User
     protected User(string userId, Catalog catalog)
     {
         UserID = userId;
-        _borrowService = new BorrowService(catalog);
+        _borrowService = new BorrowService(catalog, new Transactions());
     }
 
     protected void LibrarianMenu()
@@ -17,7 +17,7 @@ abstract class User
         Console.WriteLine("2. Return book");
         Console.WriteLine("3. View your borrowing history");
         Console.WriteLine("4. Update book details");
-        Console.WriteLine("5. View transactions");
+        Console.WriteLine("5. View another user's transactions");
         Console.WriteLine("6. Add book to catalog");
         Console.WriteLine("7. Remove book from catalog");
         Console.WriteLine("8. Quit\n");

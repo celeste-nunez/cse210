@@ -1,11 +1,11 @@
 class BorrowService
 {
-    // private Transactions _transactions;
-
+    private Transactions _transactions;
     private Catalog _catalog;
-    public BorrowService(Catalog catalog)
+    public BorrowService(Catalog catalog, Transactions transactions)
     {
         _catalog = catalog; 
+        _transactions = transactions;
     }
 
     private const string BookFileName = "BooksList.txt";
@@ -36,7 +36,7 @@ class BorrowService
                 selectedBook.Availability = false;
                 Console.WriteLine($"You have successfully checked out '{selectedBook.Title}'. Enjoy your read!\n");
                 UpdateBookFile(BookFileName);
-                // _transactions.recordEvent(TransactionFileName, IDCode, "Borrow", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
+                _transactions.recordEvent(TransactionFileName, IDCode, "Borrow", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
             }
             else 
             {
@@ -67,7 +67,7 @@ class BorrowService
                 selectedBook.Availability = true;
                 Console.WriteLine($"You have successfully returned '{selectedBook.Title}'. ");
                 UpdateBookFile(BookFileName);
-                // _transactions.recordEvent(TransactionFileName, IDCode, "Return", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
+                _transactions.recordEvent(TransactionFileName, IDCode, "Return", selectedBook.Title, selectedBook.Author, selectedBook.Genre, selectedBook.Availability, selectedBook.BookID);
             }
             else 
             {
@@ -115,6 +115,45 @@ class BorrowService
         else
         {
             Console.WriteLine($"No results found for {searchQuery}");
+        }
+    }
+
+    public void GetPersonalHistory(string _userID)
+    {
+        var searchResults = _transactions.transactions.Where(t => t.UserID.Contains(_userID)).ToList();
+
+        if (searchResults.Count > 0)
+        {
+            foreach (var transaction in searchResults)
+            {
+                Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Error: No results found");
+        }
+
+    }
+
+    public void GetAnotherUsersHistory()
+    {
+        Console.Write("Please input the user's ID: ");
+        string _userID = Console.ReadLine();
+
+        var searchResults = _transactions.transactions.Where(t => t.UserID.Contains(_userID)).ToList();
+
+        if (searchResults.Count > 0)
+        {
+            Console.WriteLine("\n");
+            foreach (var transaction in searchResults)
+            {
+                Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Error: No results found");
         }
     }
 }

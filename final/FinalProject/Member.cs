@@ -21,6 +21,10 @@ class Member : User
             {
                 _borrowService.ReturnBook(UserID);
             }
+            else if (userSelection == 3)
+            {
+                _borrowService.GetPersonalHistory(UserID);
+            }
             else if (userSelection == 4)
             {
                 break;
