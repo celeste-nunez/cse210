@@ -9,7 +9,7 @@ class BorrowService
     }
 
     private const string BookFileName = "BooksList.txt";
-    private const string TransactionFileName = "Transactions.txt";
+    private const string TransactionFileName = "TransactionRecords.txt";
 
 
     public string GetUserID(string idCode)
@@ -120,7 +120,8 @@ class BorrowService
 
     public void GetPersonalHistory(string _userID)
     {
-        var searchResults = _transactions.transactions.Where(t => t.UserID.Contains(_userID)).ToList();
+        _transactions.GetTransactions("TransactionRecords.txt");
+        var searchResults = _transactions.transactions.Where (transaction => transaction.UserID.Contains(_userID)).ToList();
 
         if (searchResults.Count > 0)
         {
@@ -128,6 +129,7 @@ class BorrowService
             {
                 Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
             }
+            Console.WriteLine("\n");
         }
         else
         {
@@ -138,10 +140,12 @@ class BorrowService
 
     public void GetAnotherUsersHistory()
     {
+        _transactions.GetTransactions("TransactionRecords.txt");
+
         Console.Write("Please input the user's ID: ");
         string _userID = Console.ReadLine();
 
-        var searchResults = _transactions.transactions.Where(t => t.UserID.Contains(_userID)).ToList();
+        var searchResults = _transactions.transactions.Where(transaction => transaction.UserID.Contains(_userID)).ToList();
 
         if (searchResults.Count > 0)
         {
@@ -150,6 +154,7 @@ class BorrowService
             {
                 Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
             }
+            Console.WriteLine("\n");
         }
         else
         {

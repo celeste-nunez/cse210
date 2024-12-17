@@ -1,4 +1,2 @@
-L5678~Borrow~The Outsiders~S.E. Hinton~YA, Coming-of-Age~False~13
-M54321~Return~Anne of Green Gables~L.M. Montgomery~Children's Fiction~True~14
-M5678~Borrow~The Lion, the Witch and the Wardrobe~C.S. Lewis~Fantasy, Children's Fiction~False~8
-M5678~Borrow~The Hunger Games~Suzanne Collins~Dystopian~False~2
+L5678~Return~Percy Jackson & The Olympians: The Lightning Thief~Rick Riordan~Fantasy, Mythology~True~5
+L5678~Borrow~The Giver~Lois Lowry~Dystopian, Children's Fiction~False~10

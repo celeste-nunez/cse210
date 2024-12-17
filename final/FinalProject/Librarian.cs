@@ -10,9 +10,6 @@ class Librarian : User
 
     public override void GetUserSelections()
     {
-        // Catalog LibrarianCatalog = getLibraryCatalog();
-        // BorrowService borrowService = new BorrowService
-        // (LibrarianCatalog);
         while (true)
         {
             LibrarianMenu();
@@ -28,25 +25,22 @@ class Librarian : User
             }
             if (userSelection == 3)
             {
-                
+                _borrowService.GetPersonalHistory(UserID);
             }
             if (userSelection == 4)
             {
-                
+                _borrowService.GetAnotherUsersHistory();
             }
             if (userSelection == 5)
             {
-                
+                // cret4e new book
+                _catalog.CreateNewBook();
             }
             if (userSelection == 6)
             {
-                
+                // remove a book
             }
             if (userSelection == 7)
-            {
-                
-            }
-            if (userSelection == 8)
             {
                 break;
             }

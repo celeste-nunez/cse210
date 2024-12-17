@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 class Catalog 
 {
     public List <Book> catalog = new List<Book>{};
+    BorrowService _borrowService;
 
     public List<Book> GetBooks(string filename) 
     {
@@ -36,6 +37,25 @@ class Catalog
         }
         return catalog;
     }  
+
+    public List<Book> CreateNewBook()
+    {
+        Console.Write("Insert title: ");
+        string title = Console.ReadLine();
+        Console.Write("Insert author" );
+        string author = Console.ReadLine();
+        Console.Write("Insert Genre");
+        string genre = Console.ReadLine();
+        Console.Write("Insert Book ID: ");
+        bool availability = true;
+        int bookID = int.Parse(Console.ReadLine());
+
+        Book newBook = new Book(title, author, genre, availability, bookID);
+        catalog.Add(newBook);
+
+        Console.WriteLine($"Book '{title}' has been added to the catalog.");
+        return catalog;
+    }
 
 }
 
