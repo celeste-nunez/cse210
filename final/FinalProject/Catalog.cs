@@ -3,6 +3,13 @@ using System.Collections.Concurrent;
 class Catalog 
 {
     public List <Book> catalog = new List<Book>{};
+    public BorrowService _borrowService;
+
+    public Catalog()
+    {
+        Transactions transactions = new Transactions();  // Create a Transactions instance
+        _borrowService = new BorrowService(this, transactions);
+    }
 
     public List<Book> GetBooks(string filename) 
     {
@@ -58,6 +65,7 @@ class Catalog
 
     public void DeleteExistingBook()
     {
+        catalog.Clear();
         GetBooks("BooksList.txt");
         
         Console.WriteLine("Current books in catalog: ");
@@ -71,8 +79,18 @@ class Catalog
         {
             var bookToRemove = catalog.FirstOrDefault(b => b.BookID == bookIDToDelete);
 
-            catalog.Remove(bookToRemove);
-            Console.WriteLine($"\nBook '{bookToRemove.Title}' has been removed from the catalog.");
+            if (bookToRemove != null)
+            {
+                catalog.Remove(bookToRemove);
+                Console.WriteLine($"\nBook '{bookToRemove.Title}' has been removed from the catalog.");
+                _borrowService.UpdateBookFile("BooksList.txt");
+
+            }
+            else
+            {
+                Console.WriteLine("\nNo book found with the specified ID. Please try again.");
+            }
+            
         }
         else
         {

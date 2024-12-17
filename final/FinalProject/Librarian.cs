@@ -36,12 +36,10 @@ class Librarian : User
             if (userSelection == 5)
             {
                 _catalog.CreateNewBook();
-                _borrowService.UpdateBookFile("BooksList.txt");
             }
             if (userSelection == 6)
             {
                 _catalog.DeleteExistingBook();
-                _borrowService.UpdateBookFile("BooksList.txt");
             }
             if (userSelection == 7)
             {
