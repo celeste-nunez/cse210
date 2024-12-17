@@ -19,26 +19,32 @@ class Librarian : User
             Console.WriteLine("\n");
             if (userSelection == 1)
             {
+               
                _borrowService.BorrowBook(UserID);
             }
             if (userSelection == 2)
             {
+                
                 _borrowService.ReturnBook(UserID);
             }
             if (userSelection == 3)
             {
+               
                 _transactions.GetPersonalHistory(UserID);
             }
             if (userSelection == 4)
             {
+                
                 _transactions.GetAnotherUsersHistory();
             }
             if (userSelection == 5)
             {
+                
                 _catalog.CreateNewBook();
             }
             if (userSelection == 6)
             {
+               
                 _catalog.DeleteExistingBook();
             }
             if (userSelection == 7)

@@ -17,14 +17,17 @@ class Member : User
             Console.WriteLine("\n");
             if (userSelection == 1) 
             {
+     
                 _borrowService.BorrowBook(UserID);
             }
             else if (userSelection == 2)
             {
+           
                 _borrowService.ReturnBook(UserID);
             }
             else if (userSelection == 3)
             {
+             
                 _transactions.GetPersonalHistory(UserID);
             }
             else if (userSelection == 4)
