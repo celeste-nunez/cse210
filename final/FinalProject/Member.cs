@@ -1,10 +1,12 @@
 class Member : User
 {
     private Catalog _catalog;
+    private Transactions _transactions;
     
-    public Member(string userId, Catalog catalog) : base(userId, catalog)
+    public Member(string userId, Catalog catalog, Transactions transactions) : base(userId, catalog)
     {
         _catalog = catalog;
+        _transactions = transactions;
     }
     public override void GetUserSelections()
     {
@@ -23,7 +25,7 @@ class Member : User
             }
             else if (userSelection == 3)
             {
-                _borrowService.GetPersonalHistory(UserID);
+                _transactions.GetPersonalHistory(UserID);
             }
             else if (userSelection == 4)
             {

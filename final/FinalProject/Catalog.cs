@@ -3,7 +3,6 @@ using System.Collections.Concurrent;
 class Catalog 
 {
     public List <Book> catalog = new List<Book>{};
-    BorrowService _borrowService;
 
     public List<Book> GetBooks(string filename) 
     {
@@ -57,6 +56,30 @@ class Catalog
         return catalog;
     }
 
+    public void DeleteExistingBook()
+    {
+        GetBooks("BooksList.txt");
+        
+        Console.WriteLine("Current books in catalog: ");
+        foreach (var book in catalog)
+        {
+            Console.WriteLine($"ID: {book.BookID}, Title: {book.Title}, Author: {book.Author}, Genre: {book.Genre}, Available: {book.Availability} ");
+        }
+        Console.Write("Enter the ID of the book you want to delete: ");
+        int bookIDToDelete;
+        if (int.TryParse(Console.ReadLine(), out bookIDToDelete))
+        {
+            var bookToRemove = catalog.FirstOrDefault(b => b.BookID == bookIDToDelete);
+
+            catalog.Remove(bookToRemove);
+            Console.WriteLine($"\nBook '{bookToRemove.Title}' has been removed from the catalog.");
+        }
+        else
+        {
+            Console.WriteLine("\nInvalid input. Please enter a valid book ID.");
+        }
+        
+    }
 }
 
 

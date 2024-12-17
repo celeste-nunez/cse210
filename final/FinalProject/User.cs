@@ -32,13 +32,6 @@ abstract class User
 
     }
 
-    // protected Catalog getLibraryCatalog()
-    // {
-    //     LibraryCatalog = new Catalog();
-    //     LibraryCatalog.GetBooks("BooksList.txt");
-    //     return LibraryCatalog;
-    // }
-
     public abstract void GetUserSelections();
 
 

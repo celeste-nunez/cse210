@@ -2,10 +2,12 @@ class Librarian : User
 {
     // private BorrowService _borrowService;
     private Catalog _catalog;
+    private Transactions _transactions;
 
-    public Librarian(string userID, Catalog catalog) : base(userID, catalog)
+    public Librarian(string userID, Catalog catalog, Transactions transactions) : base(userID, catalog)
     {
         _catalog = catalog;
+        _transactions = transactions;
     }
 
     public override void GetUserSelections()
@@ -25,20 +27,21 @@ class Librarian : User
             }
             if (userSelection == 3)
             {
-                _borrowService.GetPersonalHistory(UserID);
+                _transactions.GetPersonalHistory(UserID);
             }
             if (userSelection == 4)
             {
-                _borrowService.GetAnotherUsersHistory();
+                _transactions.GetAnotherUsersHistory();
             }
             if (userSelection == 5)
             {
-                // cret4e new book
                 _catalog.CreateNewBook();
+                _borrowService.UpdateBookFile("BooksList.txt");
             }
             if (userSelection == 6)
             {
-                // remove a book
+                _catalog.DeleteExistingBook();
+                _borrowService.UpdateBookFile("BooksList.txt");
             }
             if (userSelection == 7)
             {

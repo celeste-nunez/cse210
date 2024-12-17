@@ -55,4 +55,48 @@ class Transactions
         }
         return transactions;
     }
+
+    public void GetAnotherUsersHistory()
+    {
+        GetTransactions("TransactionRecords.txt");
+
+        Console.Write("Please input the user's ID: ");
+        string _userID = Console.ReadLine();
+
+        var searchResults = transactions.Where(transaction => transaction.UserID.Contains(_userID)).ToList();
+
+        if (searchResults.Count > 0)
+        {
+            Console.WriteLine("\n");
+            foreach (var transaction in searchResults)
+            {
+                Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
+            }
+            Console.WriteLine("\n");
+        }
+        else
+        {
+            Console.WriteLine($"Error: No results found");
+        }
+    }
+
+    public void GetPersonalHistory(string _userID)
+    {
+        GetTransactions("TransactionRecords.txt");
+        var searchResults = transactions.Where (transaction => transaction.UserID.Contains(_userID)).ToList();
+
+        if (searchResults.Count > 0)
+        {
+            foreach (var transaction in searchResults)
+            {
+                Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
+            }
+            Console.WriteLine("\n");
+        }
+        else
+        {
+            Console.WriteLine($"Error: No results found");
+        }
+
+    }
 }

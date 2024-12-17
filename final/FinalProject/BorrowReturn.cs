@@ -80,7 +80,7 @@ class BorrowService
         }
     }
 
-    private void UpdateBookFile(string filename)
+    public void UpdateBookFile(string filename)
     {
         try
         {
@@ -118,47 +118,4 @@ class BorrowService
         }
     }
 
-    public void GetPersonalHistory(string _userID)
-    {
-        _transactions.GetTransactions("TransactionRecords.txt");
-        var searchResults = _transactions.transactions.Where (transaction => transaction.UserID.Contains(_userID)).ToList();
-
-        if (searchResults.Count > 0)
-        {
-            foreach (var transaction in searchResults)
-            {
-                Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
-            }
-            Console.WriteLine("\n");
-        }
-        else
-        {
-            Console.WriteLine($"Error: No results found");
-        }
-
-    }
-
-    public void GetAnotherUsersHistory()
-    {
-        _transactions.GetTransactions("TransactionRecords.txt");
-
-        Console.Write("Please input the user's ID: ");
-        string _userID = Console.ReadLine();
-
-        var searchResults = _transactions.transactions.Where(transaction => transaction.UserID.Contains(_userID)).ToList();
-
-        if (searchResults.Count > 0)
-        {
-            Console.WriteLine("\n");
-            foreach (var transaction in searchResults)
-            {
-                Console.WriteLine($"Action: {transaction.TransactionType}, Title: {transaction.TransactionBookTitle}, Author: {transaction.TransactionBookAuthor}, Genre: {transaction.TransactionBookGenre}, BookID: {transaction.TransactionBookID} ");
-            }
-            Console.WriteLine("\n");
-        }
-        else
-        {
-            Console.WriteLine($"Error: No results found");
-        }
-    }
 }

@@ -21,13 +21,15 @@ class Library
         if (memberIDs.Contains(userID))
         {
             string userType = "member";
-            Console.WriteLine("Welcome to the library valued member!\n");
+            Console.Clear();
+            Console.WriteLine("\nWelcome to the library valued member!\n");
             return userType;
         }
         else if (librarianIDs.Contains(userID))
         {
             string userType = "librarian";
-            Console.WriteLine("Welcome librarian!\n");
+            Console.Clear();
+            Console.WriteLine("\nWelcome librarian!\n");
             return userType;
         }
         else 
